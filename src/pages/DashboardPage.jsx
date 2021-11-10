@@ -4,7 +4,7 @@ import YoutubeCard from '../component/CardComponent/YoutubeCard'
 import CounterComponent from '../component/CounterComponent/CounterComponent'
 import LifeCycleComponent from '../component/LifeCycleComponent/LifeCycleComponent'
 import GaleryComponent from '../component/GaleryComponent/GaleryComponent'
-
+import {Container, Row , Col, Button} from 'react-bootstrap'
 import './DashboardPage'
 
 
@@ -32,17 +32,17 @@ class DashboardPage extends React.Component{
     showComponentLifeCycle:true
   }  
   componentDidMount(){
-      setTimeout(() => {
-        this.setState({
-          showComponentLifeCycle:false
-        })
-      }, 12000);
-    }
-    render(){
+    setTimeout(() => {
+      this.setState({
+        showComponentLifeCycle:false
+      })
+    }, 12000);
+  }
+  render(){
       let youtubeLooping=[];
       youtubeLooping = loopingCard();
       return (
-        <div>
+        <Container>
           <TitleComponents name="Youtube Components"/>
           <hr/>
           <div>
@@ -59,12 +59,19 @@ class DashboardPage extends React.Component{
             this.state.showComponentLifeCycle ? <LifeCycleComponent/> : null
           }
           </div>
-          <TitleComponents name="JSON PLACEHOLDER (Dynamic Data)" />
+          <Row>
+            <Col md={10} sm={10}>
+              <TitleComponents name="JSON PLACEHOLDER (Dynamic Data)" />
+            </Col>
+            <Col md={2} sm={2}>
+              <Button >Add Data Item</Button>
+            </Col>
+          </Row>
           <hr/>
           <div>
             <GaleryComponent></GaleryComponent>
           </div>
-        </div>
+        </Container>
       );
     }
 }

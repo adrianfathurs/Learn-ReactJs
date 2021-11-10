@@ -21,7 +21,7 @@ class GaleryComponent extends Component{
     return (
       <Fragment>
         {
-          dataAll.map((result,index) => {
+          dataAll.map((result) => {
             return <CardGalery key={result.id} item={result} />
           })
         }
